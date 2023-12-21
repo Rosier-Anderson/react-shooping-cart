@@ -1,0 +1,97 @@
+.store-header-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+
+}
+
+.store-header-container {
+    margin-top: 2.5rem;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.store-header-title {
+    font-family: "Nunito Sans",
+        -apple-system,
+        "system-ui",
+        "Segoe UI",
+        Roboto,
+        "Helvetica Neue",
+        Arial,
+        sans-serif,
+        "Apple Color Emoji",
+        "Segoe UI Emoji",
+        "Segoe UI Symbol";
+    font-size: 32px;
+    font-weight: 600;
+    color: rgb(26, 26, 26);
+    margin-bottom: 0.7rem;
+}
+
+
+
+.store-header-description {
+    font-size: 14px;
+    font-weight: 200;
+    color: #55595c;
+    height: 21px;
+
+}
+
+.store-products-section {
+    margin: 0 auto;
+    width: 70%;
+    padding-top: 1.8rem;
+}
+
+.store-products-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.store-products-quantity {
+    font-size: 14px;
+    font-weight: 200;
+    color: #55595c;
+    height: 21px;
+}
+
+.store-products-search-input {
+    border: none;
+    background-color: rgb(247, 247, 249);
+    font-weight: 400;
+    font-style: 14px;
+    width: 17rem;
+    height: 3rem;
+    padding-left: 15px;
+    outline: none;
+
+
+}
+
+@media screen and (max-width: 767px) {
+    .store-products-search-input {
+
+        border: none;
+        background-color: rgb(247, 247, 249);
+        font-weight: 400;
+        font-style: 14px;
+        width: 10rem;
+        height: 2rem;
+        padding-left: 15px;
+
+
+
+    }
+}
+
+input:focus {
+    border: 3px solid rgb(197, 197, 197);
+}
