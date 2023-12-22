@@ -30,7 +30,9 @@ export default function Store() {
             id="store-products-search"
           />
         </div>
-        <Card />
+        <div className="store-produts-container">
+          <Card />
+        </div>
       </section>
 
       <footer>2020 React Store </footer>
