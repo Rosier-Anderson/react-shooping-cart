@@ -4,7 +4,7 @@ export default function Card() {
   const [productData, setProductData] = useState(null);
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
+    fetch("https://fakestoreapi.com/products?limit=18")
       .then((res) => res.json())
       .then((json) => setProductData(json));
   }, []); // Empty dependency array to run the effect only once on mount
@@ -13,7 +13,7 @@ export default function Card() {
 
   return (
     <>
-      {/* Assuming the first product's image, title, and price are displayed */}
+      {/* Assuming the  product's image, title, and price are displayed */}
       {productData && productData.length > 0 && (
         <>
           {productData.map((item) => {
@@ -28,10 +28,10 @@ export default function Card() {
                   <p className="store-product-title">{item.title}</p>
                   <h2 className="store-product-price">${item.price}</h2>
                   <div className="store-product-actions">
-                    <span className="store-product-more-details">
-                      More Details
-                    </span>
-                    <button className="store-add-to-cart-button">
+                    <button className="store-product-more-details">
+                      DETAILS
+                    </button>
+                    <button type="button" className="store-add-to-cart-button">
                       ADD TO CART
                     </button>
                   </div>

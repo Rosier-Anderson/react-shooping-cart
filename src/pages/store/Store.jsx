@@ -19,6 +19,7 @@ export default function Store() {
         <div className="store-products-header">
           <span className="store-products-quantity">Total Products: 10</span>
           <label
+            style={{ display: "none" }}
             className="store-products-search-label"
             htmlFor="store-products-search"
           ></label>
@@ -30,7 +31,7 @@ export default function Store() {
             id="store-products-search"
           />
         </div>
-        <div className="store-produts-container">
+        <div className="store-products-container">
           <Card />
         </div>
       </section>
