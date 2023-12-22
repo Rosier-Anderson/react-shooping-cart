@@ -46,7 +46,7 @@
 
 .store-products-section {
     margin: 0 auto;
-    width: 70%;
+    width: 1000px;
     padding-top: 1.8rem;
 }
 
@@ -69,7 +69,7 @@
     font-weight: 400;
     font-style: 14px;
     width: 17rem;
-    height: 3rem;
+    height: 2.7rem;
     padding-left: 15px;
     outline: none;
 
@@ -94,4 +94,12 @@
 
 input:focus {
     border: 3px solid rgb(197, 197, 197);
+}
+
+.store-produts-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
