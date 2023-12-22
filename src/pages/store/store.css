@@ -48,6 +48,7 @@
     margin: 0 auto;
     width: 1000px;
     padding-top: 1.8rem;
+
 }
 
 .store-products-header {
@@ -90,16 +91,21 @@
 
 
     }
+
+    .store-products-container {
+        width: 400px;
+    }
 }
 
 input:focus {
     border: 3px solid rgb(197, 197, 197);
 }
 
-.store-produts-container {
+.store-products-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 10px;
+    padding-top: 1rem;
 }

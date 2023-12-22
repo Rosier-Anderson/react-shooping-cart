@@ -9,7 +9,7 @@ export default function Store() {
       <Navigation />
       <section className="store-header-section">
         <div className="store-header-container">
-          <h1 className="store-header-title">STORE</h1>
+          <h1 className="store-header-title">I-STORE</h1>
           <p className="store-header-description">
             Explore our amazing products.
           </p>
@@ -19,6 +19,7 @@ export default function Store() {
         <div className="store-products-header">
           <span className="store-products-quantity">Total Products: 10</span>
           <label
+            style={{ display: "none" }}
             className="store-products-search-label"
             htmlFor="store-products-search"
           ></label>
@@ -30,7 +31,7 @@ export default function Store() {
             id="store-products-search"
           />
         </div>
-        <div className="store-produts-container">
+        <div className="store-products-container">
           <Card />
         </div>
       </section>
