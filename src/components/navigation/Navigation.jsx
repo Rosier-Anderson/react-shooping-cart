@@ -2,26 +2,30 @@ import React from "react";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 
 import "./navigation.css";
+import { NavLink } from "react-router-dom";
 export default function Navigation() {
+  const isActive = ({ isActive }) => {
+    return `link${isActive ? " unselected" : " "}`;
+  };
   return (
     <header className="nav-header">
       <nav>
         <ul className="nav-items">
           <li className="nav-list-items">
-            <a className="link" href="/store">
+            <NavLink className={isActive} to="/">
               Store
-            </a>
+            </NavLink>
           </li>
           <li className="nav-list-items">
-            <a className="link" href="/about">
+            <NavLink className={isActive} to="/about">
               About
-            </a>
+            </NavLink>
           </li>
           <li className="nav-list-items">
             <HiOutlineShoppingCart />
-            <a className="link" href="/cart">
+            <NavLink className={isActive} to="/cart">
               Cart(0)
-            </a>
+            </NavLink>
           </li>
         </ul>
       </nav>
