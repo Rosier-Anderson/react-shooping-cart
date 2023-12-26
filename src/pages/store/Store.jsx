@@ -6,7 +6,6 @@ import Card from "../../components/Card";
 export default function Store() {
   return (
     <>
-      <Navigation />
       <section className="store-header-section">
         <div className="store-header-container">
           <h1 className="store-header-title">I-STORE</h1>
