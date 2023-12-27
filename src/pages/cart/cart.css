@@ -3,6 +3,8 @@
     --secondary-color: #1a1a1a;
 }
 
+
+
 .cart-container {
     position: relative;
     display: flex;
@@ -13,9 +15,11 @@
     height: calc(100vh - 50px);
     margin: 0 auto;
 
+
 }
 
-.cart-container-title {
+
+.cart-title {
     position: absolute;
     top: 4%;
     font-size: 32px;
@@ -25,7 +29,7 @@
 
 }
 
-.cart-container-title-paragraph {
+.cart-description {
     position: absolute;
     top: 8%;
     font-size: 14px;
@@ -34,10 +38,14 @@
     font-style: normal;
 }
 
-.cart-container-item {
+.cart-item-wrapper {
     width: 50%;
     margin: 180px 0 auto 0;
 
+}
+
+.cart-item {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
