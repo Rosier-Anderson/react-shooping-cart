@@ -3,20 +3,20 @@ import React from "react";
 export default function CartItem() {
   return (
     <>
-      <section className="cart-container">
-        <div className="cart-item-header">
-          <h1 className="cart-title">Cart</h1>
+      <section className="cart-container-wrapper">
+        <div className="cart-header">
+          <h1 className="cart-title">CART</h1>
           <p className="cart-description">This is the Cart Page</p>
         </div>
 
         <div className="cart-item-wrapper">
           <article className="cart-item">
-            <figure className="cart-item-image">
+            <figure className="cart-figure">
               <img
                 style={{
                   width: "100px",
                 }}
-                className="cart-item-image"
+                className="cart-figure-image"
                 src="https://images.pexels.com/photos/428340/pexels-photo-428340.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                 alt="Product Image"
               />
@@ -50,12 +50,12 @@ export default function CartItem() {
             </section>
           </article>
           <article className="cart-item">
-            <figure className="cart-item-image">
+            <figure className="cart-figure">
               <img
                 style={{
                   width: "100px",
                 }}
-                className="cart-item-image"
+                className="cart-figure-image"
                 src="https://images.pexels.com/photos/428340/pexels-photo-428340.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                 alt="Product Image"
               />
