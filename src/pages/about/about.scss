@@ -3,6 +3,11 @@
   color: $color;
   font-weight: $font-weight;
 }
+@mixin displayFlex($display, $justifyContent, $alignItems) {
+  display: $display;
+  justify-content: $justifyContent;
+  align-items: $alignItems;
+}
 .about {
   margin-top: 3rem;
 
@@ -10,26 +15,25 @@
     text-align: center;
     letter-spacing: 4px;
     @include fontStyle(32px, rgb(26, 26, 26), 600);
+    margin: 10px;
   }
   .about-desciption {
     text-align: center;
-    @include fontStyle(14px, rgb(85, 89, 92), 200);
+    @include fontStyle(12px, rgb(85, 89, 92), 200);
+    margin: 10px;
   }
   .about-link {
     display: flex;
     justify-content: center;
-
     height: 40px;
+    margin: 10px;
     a {
       @include fontStyle(15px, white, 600);
       border: none;
-      width: 150px;
+      width: 180px;
       height: 40px;
-      display: inline-block;
       background-color: #000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      @include displayFlex(flex, center, center);
     }
   }
 }
