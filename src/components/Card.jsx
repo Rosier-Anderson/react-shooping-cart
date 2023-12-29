@@ -1,7 +1,7 @@
 // Card.js
 import React from "react";
 import "./card.css";
-import useApiData from "./services/fechData/getApiData";
+import useApiData from "../fechData/getApiData";
 
 export default function Card() {
   const { data, loading, error } = useApiData(
