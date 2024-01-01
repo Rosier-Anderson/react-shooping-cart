@@ -1,8 +1,9 @@
 // Card.js
-import React from "react";
+import React, { useContext } from "react";
 import "./card.css";
-import useApiData from "../fechData/getApiData";
-
+import useApiData from "../services/fechData/getApiData";
+import { DataContext } from "../AppContext/DataContext";
+let context = useContext(DataContext);
 export default function Card() {
   const { data, loading, error } = useApiData(
     "https://fakestoreapi.com/products?limit=18"
@@ -11,10 +12,10 @@ export default function Card() {
   if (loading) {
     return (
       <div
-        class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+        className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
         role="status"
       >
-        <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
+        <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
           Loading...
         </span>
       </div>
@@ -24,6 +25,15 @@ export default function Card() {
   if (error) {
     return <p>Error: {error}</p>;
   }
+  const handleClickEvent = (eventId) => {
+    const selectedItem = data.find((item) => item.id === eventId);
+
+    if (selectedItem) {
+      console.log(selectedItem);
+    } else {
+      console.error(`Item with ID ${eventId} not found.`);
+    }
+  };
 
   return (
     <>
@@ -43,7 +53,11 @@ export default function Card() {
                   <button className="store-product-more-details">
                     DETAILS
                   </button>
-                  <button type="button" className="store-add-to-cart-button">
+                  <button
+                    type="button"
+                    className="store-add-to-cart-button"
+                    onClick={() => handleClickEvent(item.id)}
+                  >
                     ADD TO CART
                   </button>
                 </div>
