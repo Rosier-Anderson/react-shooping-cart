@@ -1,6 +1,6 @@
 import React from "react";
 import "./store.css";
-import Navigation from "../../components/navigation/Navigation";
+
 import Card from "../../components/Card";
 
 export default function Store() {

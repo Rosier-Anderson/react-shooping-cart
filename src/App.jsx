@@ -4,6 +4,7 @@ import Store from "./pages/store/Store";
 import Navigation from "./components/navigation/Navigation";
 import About from "./pages/about/About";
 import Cart from "./pages/cart/Cart";
+import React from "react";
 
 function App() {
   return (
