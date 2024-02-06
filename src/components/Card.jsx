@@ -2,9 +2,12 @@
 import React, { useContext } from "react";
 import "./card.css";
 import useApiData from "../services/fechData/getApiData";
-import { DataContext } from "../AppContext/DataContext";
-let context = useContext(DataContext);
+
+import { DataContext } from "../services/DataContext";
 export default function Card() {
+  {
+    console.log(useContext(DataContext));
+  }
   const { data, loading, error } = useApiData(
     "https://fakestoreapi.com/products?limit=18"
   );
@@ -16,7 +19,7 @@ export default function Card() {
         role="status"
       >
         <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
-          Loading...
+          Loading...😃 😃 😃 😃
         </span>
       </div>
     );
