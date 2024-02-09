@@ -2,7 +2,18 @@ import React from "react";
 import "./store.css";
 
 import Card from "../../components/Card";
-
+import Footer from "../footer/Footer";
+function Store() {
+  return (
+    <>
+      <HeaderSection />
+      <ProductsSection>
+        <Card />
+      </ProductsSection>
+      <Footer />
+    </>
+  );
+}
 const HeaderSection = () => {
   return (
     <section className="store-header-section">
@@ -37,15 +48,5 @@ const ProductsSection = ({ children }) => {
     </section>
   );
 };
-function Store() {
-  return (
-    <>
-      <HeaderSection />
-      <ProductsSection>
-        <Card />
-      </ProductsSection>
-      <footer>2020 React Store </footer>
-    </>
-  );
-}
+
 export default Store;

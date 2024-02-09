@@ -3,7 +3,9 @@ import { HiOutlineShoppingCart } from "react-icons/hi";
 
 import "./navigation.css";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 export default function Navigation() {
+  const cartQuantity = useSelector((state) => state.cart.length);
   const isActive = ({ isActive }) => {
     return `link${isActive ? " unselected" : " "}`;
   };
@@ -24,7 +26,7 @@ export default function Navigation() {
           <li className="nav-list-items">
             <HiOutlineShoppingCart />
             <NavLink className={isActive} to="/cart">
-              Cart(0)
+              Cart( {cartQuantity})
             </NavLink>
           </li>
         </ul>
