@@ -1,74 +1,64 @@
-// Card.js
-import React, { useContext } from "react";
+import React, { createContext, useContext, useState } from "react";
 import "./card.css";
-import useApiData from "../services/fechData/getApiData";
+import useApiData from "../services/fechData/fetchApiData";
 
-import { DataContext } from "../services/DataContext";
-export default function Card() {
-  {
-    console.log(useContext(DataContext));
-  }
-  const { data, loading, error } = useApiData(
+import AddToCartButton from "./AddToCartButton";
+import { useDispatch } from "react-redux";
+import { add } from "../storeRedux/CartSlice";
+//const sendToCart = () => createContext(productInfo);
+function Card() {
+  const dispatch = useDispatch();
+  const { apiData, isLoading, apiError } = useApiData(
     "https://fakestoreapi.com/products?limit=18"
   );
-
-  if (loading) {
+  if (isLoading) {
     return (
-      <div
-        className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
-        role="status"
-      >
-        <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
-          Loading...😃 😃 😃 😃
-        </span>
+      <div className="loading-spinner" role="status">
+        Loading...
       </div>
     );
   }
 
-  if (error) {
-    return <p>Error: {error}</p>;
+  if (apiError || !apiData) {
+    return <p>Error isLoading data: {apiError || "Data not available."}</p>;
   }
-  const handleClickEvent = (eventId) => {
-    const selectedItem = data.find((item) => item.id === eventId);
 
-    if (selectedItem) {
-      console.log(selectedItem);
-    } else {
-      console.error(`Item with ID ${eventId} not found.`);
-    }
+  const handleAddToCardClick = (eventId) => {
+    const selectedItem = apiData.find((item) => item.id === eventId);
+    dispatch(add(selectedItem));
   };
 
   return (
     <>
-      {data && data.length > 0 && (
-        <>
-          {data.map((item) => (
-            <article key={item.id} className="store-product-card">
-              <img
-                src={item.image}
-                alt="Product Image"
-                className="store-product-image img-style"
-              />
-              <div className="store-product-details">
-                <p className="store-product-title">{item.title}</p>
-                <h2 className="store-product-price">${item.price}</h2>
-                <div className="store-product-actions">
-                  <button className="store-product-more-details">
-                    DETAILS
-                  </button>
-                  <button
-                    type="button"
-                    className="store-add-to-cart-button"
-                    onClick={() => handleClickEvent(item.id)}
-                  >
-                    ADD TO CART
-                  </button>
-                </div>
-              </div>
-            </article>
-          ))}
-        </>
-      )}
+      {apiData.map((item) => (
+        <ProductCard
+          key={item.id}
+          item={item}
+          onAddToCartClick={() => handleAddToCardClick(item.id)}
+        />
+      ))}
     </>
   );
 }
+
+// Extracted ProductCard component
+const ProductCard = ({ item, onAddToCartClick }) => (
+  <article className="store-product-card">
+    <img
+      src={item.image}
+      alt="Product Image"
+      className="store-product-image img-style"
+    />
+    <div className="store-product-details">
+      <p className="store-product-title">{item.title}</p>
+      <h2 className="store-product-price">${item.price}</h2>
+      <div className="store-product-actions">
+        <button className="store-product-more-details">DETAILS</button>
+        <AddToCartButton onClick={onAddToCartClick} />
+      </div>
+    </div>
+  </article>
+);
+// Extracted AddToCartButton component
+
+export default Card;
