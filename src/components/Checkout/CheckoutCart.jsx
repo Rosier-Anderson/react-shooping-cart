@@ -1,14 +1,16 @@
 import React from "react";
 import "./checkout.scss";
+import { useSelector } from "react-redux";
 
 export default function CheckoutCart() {
+  const cartQuantity = useSelector((state) => state.cart.length);
   return (
     <>
       <aside className="checkout-cart">
         <section className="checkout-cart-summary">
           <div className="checkout-cart-info">
             <p className="checkout-cart-label">Total Items</p>
-            <h3 className="checkout-cart-quantity">6</h3>
+            <h3 className="checkout-cart-quantity">{cartQuantity}</h3>
           </div>
 
           <div className="checkout-cart-info">

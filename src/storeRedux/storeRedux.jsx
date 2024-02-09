@@ -6,5 +6,5 @@ const store = configureStore({
     cart: CartSlice,
   },
 });
-console.log(store.getState());
+
 export default store;
